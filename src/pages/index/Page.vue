@@ -8,6 +8,9 @@
     import Help from '@/businessComponents/Help/main.vue';
     import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
 
+    import enjoyEnv from 'enjoy-env';
+    console.log(enjoyEnv);
+
     export default {
         name: 'Page',
         components: {
