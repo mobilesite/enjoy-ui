@@ -9,7 +9,7 @@ npm i -g cross-env karma anywhere
 
 ## 二、开发调试
 
-支持热加载的调试：
+支持热重载（Hot Reload）的调试：
 
 ```bash
 anywhere -p 9090
@@ -118,7 +118,7 @@ Error: EACCES: permission denied, open 'xxxxxxxxx'
 这时可能是打包时出现了文件权限问题，通常执行`bash reset.sh `命令即可，这个命令
 行里面会自动帮你重置相关文件的权限。
 
-#### 6.2 在热重载（hotreload ）的情况下，添加一个文件或文件夹后，控制台报找不到相应的模块
+#### 6.2 在热重载的情况下，添加一个文件或文件夹后，控制台报找不到相应的模块
 
-在热重载（hotreload ）的情况下，添加一个文件或文件夹后，需要先结束`npm run dll-dev`的运行，再重新执行`npm run dll-dev`，以检测到文件的变更。这一点与
+在热重载的情况下，添加一个文件或文件夹后，需要先结束`npm run dll-dev`的运行，再重新执行`npm run dll-dev`，以检测到文件的变更。这一点与
 vue-cli 生成的项目是一样的。
