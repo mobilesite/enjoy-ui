@@ -23,6 +23,9 @@ import globalVars from '../../globalVars/index';
 import infiniteScroll from 'vue-infinite-scroll';
 import VueLazyload from 'vue-lazyload'
 
+require('../../../dist/styles/enjoyUI.css');
+import enjoyUI from '../../../dist/enjoyUI.js';
+
 //统一对请求进行处理
 axios.interceptors.request.use(function (config) {
 	// 在发送请求之前做些什么
@@ -47,6 +50,7 @@ Vue.config.productionTip = false;
 Vue.use(VueExtension);
 Vue.use(VueToast);
 Vue.use(VueAxios, axios);
+Vue.use(enjoyUI);
 
 window.globalVars = globalVars;
 

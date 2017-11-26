@@ -1,11 +1,11 @@
 <template>
-    <div class="enjoy-range" :class="className">
+    <div class="ej-range" :class="className">
         <input type="hidden" :name="inputName" v-model="validCurrent">
-        <div class="enjoy-range-left" ref="wrap">
-            <div class="enjoy-range-finished" ref="finished"></div>
-            <div class="enjoy-range-indicator" ref="indicator" @touchstart.prevent="touchStart" @touchmove.prevent="touchMove" @touchend="touchEnd"></div>
+        <div class="ej-range__left" ref="wrap">
+            <div class="ej-range__finished" ref="finished"></div>
+            <div class="ej-range__indicator" ref="indicator" @touchstart.prevent="touchStart" @touchmove.prevent="touchMove" @touchend="touchEnd"></div>
         </div>
-        <div class="enjoy-range-right" v-text="validCurrent" ref="value"></div>
+        <div class="ej-range__right" v-text="validCurrent" ref="value"></div>
     </div>
 </template>
 
@@ -139,69 +139,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../styles/vui/main.less";
-
-    @height: 2px;
-    @indicator-height: 26px;
-
-    .enjoy-range{
-        display: flex;
-        height: @indicator-height;
-    }
-    .enjoy-range-left{
-        position: relative;
-        flex: 1;
-
-        &:before{
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            right: 0;
-            transform: translate(0, -50%);
-            height: @height;
-            background-color: #e9e9e9;
-        }
-    }
-    .enjoy-range-right{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 30px;
-        padding: 0 10px;
-        font-size: 14px;
-        color: @v-color-text-gray;
-    }
-    .enjoy-range-finished{
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translate(0, -50%);
-        height: @height;
-        background-color: @v-color-primary;
-        font-size: 0;
-        line-height: 0;
-    }
-    .enjoy-range-indicator{
-        position: absolute;
-        z-index: 1;
-        top: 50%;
-        left: 0;
-        box-sizing: border-box;
-        width: @indicator-height;
-        height: @indicator-height;
-        background-color: #fff;
-        border-radius: 50%;
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
-        color: #fff;
-        text-align: center;
-    }
-
-    .theme-qsc{
-        .enjoy-range-finished{
-            background-color: @enjoy-color-primary-test;
-        }
-    }
-</style>

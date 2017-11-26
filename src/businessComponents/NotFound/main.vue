@@ -17,7 +17,7 @@
 </script>
 
 <style lang="less">
-    @import "../../styles/enjoy-ui/main.less";
+    @import "../../styles/base.less";
     .not-found {
         .mixin-fullscreen();
         display: flex;
@@ -25,6 +25,6 @@
         align-items: center;
     }
     .not-found-inner{
-        margin-bottom: @enjoy-height-footer-nav;
+        margin-bottom: @ej-height-footer-nav;
     }
 </style>

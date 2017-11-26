@@ -36,7 +36,7 @@ VueToast.install = function (Vue, options) {
 
         const defaultTimeLife = 2000;
 
-        if (document.querySelectorAll('.enjoy-toast').length) {
+        if (document.querySelectorAll('.ej-toast').length) {
             doCallBack(options);
             return;
         }

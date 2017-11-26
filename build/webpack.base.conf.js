@@ -3,9 +3,11 @@ var fs = require('fs');
 var os = require('os');
 var webpack = require('webpack');
 var ProgressBarPlugin = require('progress-bar-webpack-plugin'); //显示打包进度条
+var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 var HappyPack = require('happypack');
 var happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+var package = require('../package.json');
 
 var utils = require('./utils');
 var isDebug = process.env.NODE_ENV === 'development';
@@ -181,6 +183,11 @@ module.exports = {
     },
     plugins: [
         new ProgressBarPlugin(),
+        new FriendlyErrorsPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.VERSION': `'${package.version}'`
+        }),
+        // new webpack.optimize.ModuleConcatenationPlugin(),//webpack2处理后的每个模块均被一个函数包裹,这样会带来一个问题：降低浏览器中JS执行效率，这主要是闭包函数降低了JS引擎解析速度。于是webpack 3参考Closure Compiler和Rollup JS，将一些有联系的模块，放到一个闭包函数里面去，通过减少闭包函数数量从而加快JS的执行速度。 Concatenation串联
         new HappyPack({
             id: 'happybabel',
             loaders: ['babel-loader'],

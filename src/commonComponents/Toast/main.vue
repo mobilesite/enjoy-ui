@@ -1,7 +1,7 @@
 
 <template>
-    <div class="enjoy-toast" >
-        <div class="enjoy-toast-inner" :class="{'enjoy-toast-inner-show': show}">
+    <div class="ej-toast" >
+        <div class="ej-toast__inner" :class="{'ej-toast__inner--show': show}">
             <span v-text="msg"></span>
         </div>
     </div>
@@ -17,14 +17,10 @@
         },
         computed: {
             className(){
-                return this.show ? 'enjoy-toast-inner-show' : 'enjoy-toast-inner-hide'
+                return this.show ? 'ej-toast__inner--show' : ''
             }
         }
     }
 </script>
-
-<style lang="less">
-
-</style>
 
 

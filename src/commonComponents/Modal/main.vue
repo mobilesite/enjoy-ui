@@ -1,14 +1,14 @@
 <template>
-    <div class="enjoy-modal" :class="className" v-show="show">
-        <div class="enjoy-modal-inner">
-            <div class="enjoy-modal-header">
-                <slot name="enjoy-modal-header"></slot>
+    <div class="ej-modal" :class="className" v-show="show">
+        <div class="ej-modal__inner">
+            <div class="ej-modal__header">
+                <slot name="ej-modal__header"></slot>
             </div>
-            <div class="enjoy-modal-body">
-                <slot name="enjoy-modal-body"></slot>
+            <div class="ej-modal__body">
+                <slot name="ej-modal__body"></slot>
             </div>
-            <div class="enjoy-modal-footer">
-                <slot name="enjoy-modal-footer"></slot>
+            <div class="ej-modal__footer">
+                <slot name="ej-modal__footer"></slot>
             </div>
         </div>
     </div>
@@ -29,7 +29,3 @@
         }
     };
 </script>
-
-<style lang="less">
-    @import "../../styles/enjoy-ui/main.less";
-</style>

@@ -8,7 +8,8 @@ var path = require('path');
 var chalk = require('chalk');
 var webpack = require('webpack');
 var config = require('../config');
-var webpackConfig = require('./webpack.prod.conf');
+var webpackLibConfig = require('./webpack.prod.lib.conf');
+var webpackExampleConfig = require('./webpack.prod.example.conf');
 
 var spinner = ora('building for production...');
 spinner.start();
@@ -19,8 +20,23 @@ spinner.start();
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
     if (err) throw err;
 
-    //调用webpack打包的入口
-    webpack(webpackConfig, function(err, stats) {
+    //打包lib
+    webpack(webpackLibConfig, function(err, stats) {
+        if (err) throw err;
+
+        process.stdout.write(
+            stats.toString({
+                colors: true,
+                modules: false,
+                children: false,
+                chunks: false,
+                chunkModules: false
+            }) + '\n\n'
+        );
+    });
+
+    //打包example
+    webpack(webpackExampleConfig, function(err, stats) {
         spinner.stop();
         if (err) throw err;
 

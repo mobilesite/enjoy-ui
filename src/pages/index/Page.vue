@@ -1,27 +1,31 @@
 <template>
     <div class="page">
-        <help></help>
+        <switchbox :checked="gender" name="gender" @switchbox-change="onSwitchBoxChange"></switchbox>
+
+        <range input-name="percent" :current="current" :total="total" class-name="my-range" @range-current-change="rangeCurrentChange"></range>
+
+        <progressbar percent="50%" class-name="my-progressbar"></progressbar>
+
+        <loading :show="showLoading"></loading>
     </div>
 </template>
 
 <script>
-    import Help from '@/businessComponents/Help/main.vue';
     import { mapState, mapGetters, mapActions, mapMutations } from 'vuex';
-
-    import enjoyEnv from 'enjoy-env';
-    console.log(enjoyEnv);
 
     export default {
         name: 'Page',
         components: {
-            Help,
         },
         computed: {
             
         },
         data() {
             return {
-                
+                gender: false,
+                current: 70,
+                total: 100,
+                showLoading: true
             };
         },
         created(){
@@ -31,23 +35,27 @@
             
         },
         methods: {
-
+            onSwitchBoxChange(){
+                this.gender = !this.gender;
+            },
+            rangeCurrentChange(current){
+                this.current = current;
+            }
         }
     };
 </script>
 
 <style lang="less">
-    @import '../../styles/enjoy-ui/main.less';
+    @import '../../styles/lib.less';
 
     .page {
-        font-family: @enjoy-font-default;
+        font-family: @ej-font-default;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         margin-top: 0;
-        color: @enjoy-color-text-dark;
+        color: @ej-color-text-dark;
     }
-
 
     .slide-left-enter-active {
         -webkit-animation: slide-left-in .5s cubic-bezier(0.23, 1, 0.32, 1);

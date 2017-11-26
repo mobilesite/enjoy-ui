@@ -1,7 +1,7 @@
 <template>
-    <div class="enjoy-progressbar" :class="className" ref="wrap">
-        <div class="enjoy-progressbar-finished" ref="finished"></div>
-        <div class="enjoy-progressbar-indicator" enjoy-text="newPercent" ref="indicator"></div>
+    <div class="ej-progressbar" :class="className" ref="wrap">
+        <div class="ej-progressbar__finished" ref="finished"></div>
+        <div class="ej-progressbar__indicator" v-text="newPercent" ref="indicator"></div>
     </div>
 </template>
 
@@ -78,61 +78,3 @@
         }
     }
 </script>
-
-<style lang="less">
-    @import "../../styles/vui/main.less";
-
-    @height: 2px;
-    @indicator-height: 14px;
-    @indicator-min-width: 44px;
-
-    .enjoy-progressbar{
-        position: relative;
-        height: @indicator-height;
-
-        &:before{
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            right: 0;
-            transform: translate(0, -50%);
-            height: @height;
-            background-color: #e9e9e9;
-        }
-    }
-    .enjoy-progressbar-finished{
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translate(0, -50%);
-        height: @height;
-        background-color: @enjoy-color-primary;
-        font-size: 0;
-        line-height: 0;
-    }
-    .enjoy-progressbar-indicator{
-        position: absolute;
-        z-index: 1;
-        top: 50%;
-        left: 0;
-        box-sizing: border-box;
-        height: @indicator-height;
-        min-width: @indicator-min-width;
-        line-height: @indicator-height;
-        border-radius: @indicator-height/2;
-        background: @enjoy-color-primary;
-        font-size: @indicator-height - 2;
-        color: #fff;
-        text-align: center;
-    }
-
-    .theme-qsc{
-        .enjoy-progressbar-indicator{
-            background: @enjoy-color-primary-test;
-        }
-        .enjoy-progressbar-finished{
-            background-color: @enjoy-color-primary-test;
-        }
-    }
-</style>
