@@ -23,8 +23,8 @@ import globalVars from '../../globalVars/index';
 import infiniteScroll from 'vue-infinite-scroll';
 import VueLazyload from 'vue-lazyload'
 
-require('../../../dist/styles/enjoyUI.css');
-import enjoyUI from '../../../dist/enjoyUI.js';
+require('../../../dist/styles/enjoy-ui.css');
+import enjoyUI from '../../../dist/enjoy-ui.js';
 
 //统一对请求进行处理
 axios.interceptors.request.use(function (config) {

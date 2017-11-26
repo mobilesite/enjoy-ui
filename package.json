@@ -1,6 +1,6 @@
 {
   "name": "enjoy-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "license": "MIT",
   "author": {
@@ -8,6 +8,7 @@
     "email": "mobilesite@163.com",
     "url": ""
   },
+  "main": "dist/enjoy-ui.js",
   "scripts": {
     "dll-dev": "cross-env NODE_ENV=development webpack --config build/webpack.dll.conf.js --progress && npm run dev",
     "dll-build": "cross-env NODE_ENV=production webpack --config build/webpack.dll.conf.js --progress && npm run build",

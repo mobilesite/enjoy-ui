@@ -29,12 +29,12 @@ var plugins = [
         'process.env.VERSION': `'${package.version}'`
     }),
     new FriendlyErrorsPlugin(),
-    // new UglifyJsParallelPlugin({
-    //     workers: os.cpus().length,
-    //     mangle: true,
-    //     compressor: config.build.compressor,
-    //     sourceMap: config.build.productionSourceMap
-    // }),
+    new UglifyJsParallelPlugin({
+        workers: os.cpus().length,
+        mangle: true,
+        compressor: config.build.compressor,
+        sourceMap: config.build.productionSourceMap
+    }),
 
     new webpack.optimize.OccurrenceOrderPlugin(),
 
@@ -63,7 +63,7 @@ var webpackConfig = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/dist/',
-        filename: 'enjoyUI.js',
+        filename: 'enjoy-ui.js',
         library: 'enjoyUI',
         libraryTarget: 'umd',
         umdNamedDefine: true
