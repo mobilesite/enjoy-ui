@@ -1904,7 +1904,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 var API = __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({
-    version: '1.0.0',
+    version: '0.0.1',
     install: install
 }, components);
 
